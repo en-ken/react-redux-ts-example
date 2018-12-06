@@ -1,0 +1,11 @@
+rulesDirectory:
+  - tslint-plugin-prettier
+extends:
+  - tslint-config-standard
+  - tslint-config-prettier
+rules:
+  prettier:
+    - error
+    - trailingComma: none
+      singleQuote: true
+      semi: false
