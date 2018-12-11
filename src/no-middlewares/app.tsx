@@ -1,4 +1,6 @@
-import React, { Dispatch } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
 
 import { Toolbar } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
@@ -13,7 +15,10 @@ import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
 import PeopleApi, { PersonalData } from '../apis/people'
-import { actions } from './modules'
+import { actions, AppState } from './modules'
+
+type StateProps = ReturnType<typeof mapStateToProps>
+type DispatchProps = ReturnType<typeof mapDispatchToProps>
 
 const theme = createMuiTheme({
   palette: {
@@ -59,6 +64,7 @@ const App = () => (
   </MuiThemeProvider>
 )
 
+const mapStateToProps = (state: AppState) => ({ ...state })
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   initialize: async () => {
     dispatch(actions.startLoading())
@@ -77,4 +83,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   closeDialog: () => dispatch(actions.closeDialog())
 })
 
-export default App
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
