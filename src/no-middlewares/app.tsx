@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 
 import { Toolbar } from '@material-ui/core'
 import AppBar from '@material-ui/core/AppBar'
@@ -11,6 +11,9 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
+
+import PeopleApi, { PersonalData } from '../apis/people'
+import { actions } from './modules'
 
 const theme = createMuiTheme({
   palette: {
@@ -55,5 +58,23 @@ const App = () => (
     </Paper>
   </MuiThemeProvider>
 )
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  initialize: async () => {
+    dispatch(actions.startLoading())
+    const { data } = await PeopleApi.get()
+    dispatch(actions.fetchDataSuccess(data))
+    dispatch(actions.finishLoading())
+  },
+  postData: async (inputData: PersonalData) => {
+    dispatch(actions.startLoading())
+    await PeopleApi.post(inputData)
+    const { data } = await PeopleApi.get()
+    dispatch(actions.fetchDataSuccess(data))
+    dispatch(actions.finishLoading())
+  },
+  openDialog: () => dispatch(actions.openDialog()),
+  closeDialog: () => dispatch(actions.closeDialog())
+})
 
 export default App
