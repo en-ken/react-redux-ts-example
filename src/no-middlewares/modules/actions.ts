@@ -3,11 +3,11 @@ import PeopleApi, { PersonalData } from '../../apis/people'
 import { ActionsUnion, createAction } from '../../utils/actions'
 
 export enum ActionType {
-  FETCH_DATA_SUCCESS = 'react-redux-ts-example-ts/FETCH_DATA_SUCCESS',
-  OPEN_DIALOG = 'react-redux-ts-example-ts/OPEN_DIALOG',
-  CLOSE_DIALOG = 'react-redux-ts-example-ts/CLOSE_DIALOG',
-  START_LOADING = 'react-redux-ts-example-ts/START_LOADING',
-  FINISH_LOADING = 'react-redux-ts-example-ts/FINISH_LOADING'
+  FETCH_DATA_SUCCESS = 'example/no-middleware/FETCH_DATA_SUCCESS',
+  OPEN_DIALOG = 'example/no-middlewares/OPEN_DIALOG',
+  CLOSE_DIALOG = 'example/no-middlewares/CLOSE_DIALOG',
+  START_LOADING = 'example/no-middlewares/START_LOADING',
+  FINISH_LOADING = 'example/no-middlewares/FINISH_LOADING'
 }
 
 export type AppAction = ActionsUnion<typeof actions>
