@@ -5,6 +5,7 @@ extends:
   - tslint-config-standard
   - tslint-config-prettier
 rules:
+  object-literal-sort-keys: false
   prettier:
     - true
     - trailingComma: none
