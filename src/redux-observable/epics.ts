@@ -3,8 +3,8 @@ import { mergeMap } from 'rxjs/operators'
 
 import { ofAction } from 'typescript-fsa-redux-observable-of-action'
 
-import PeopleApi from '../../apis/people'
-import actions, { AppAction } from './actions'
+import PeopleApi from '../apis/people'
+import { actions, AppAction } from './modules'
 
 const fetchDataEpic: Epic<AppAction> = action$ =>
   action$.pipe(

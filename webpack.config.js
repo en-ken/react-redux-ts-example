@@ -4,12 +4,13 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    index: path.join(__dirname, './src/index.tsx'),
+    'no-middlewares': path.join(__dirname, './src/no-middlewares/index.tsx'),
+    'redux-thunk': path.join(__dirname, './src/redux-thunk/index.tsx'),
+    'redux-observable': path.join(__dirname, './src/redux-observable/index.tsx')
   },
   output: {
-    path: path.join(__dirname, '/dist/scripts'),
-    publicPath: '/scripts',
-    filename: '[name].js',
+    path: path.join(__dirname, '/dist'),
+    filename: 'scripts/[name].js',
   },
   module: {
     rules: [

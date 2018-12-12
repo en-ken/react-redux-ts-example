@@ -18,6 +18,7 @@ import { actions, AppState } from './modules'
 
 type StateProps = ReturnType<typeof mapStateToProps>
 type DispatchProps = ReturnType<typeof mapDispatchToProps>
+type Props = StateProps & DispatchProps
 
 const App = () => (
   <>
@@ -59,19 +60,9 @@ const App = () => (
 
 const mapStateToProps = (state: AppState) => ({ ...state })
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  initialize: async () => {
-    dispatch(actions.startLoading())
-    const { data } = await PeopleApi.get()
-    dispatch(actions.fetchDataSuccess(data))
-    dispatch(actions.finishLoading())
-  },
-  postData: async (inputData: PersonalData) => {
-    dispatch(actions.startLoading())
-    await PeopleApi.post(inputData)
-    const { data } = await PeopleApi.get()
-    dispatch(actions.fetchDataSuccess(data))
-    dispatch(actions.finishLoading())
-  },
+  initialize: async () => dispatch(actions.fetchData()),
+  postData: async (inputData: PersonalData) =>
+    dispatch(actions.postData(inputData)),
   openDialog: () => dispatch(actions.openDialog()),
   closeDialog: () => dispatch(actions.closeDialog())
 })
