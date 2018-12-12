@@ -1,8 +1,9 @@
 import { combineEpics, Epic } from 'redux-observable'
 import { mergeMap } from 'rxjs/operators'
 
+import { ofAction } from 'typescript-fsa-redux-observable-of-action'
+
 import PeopleApi from '../../apis/people'
-import { ofAction } from '../../utils/of-action'
 import actions, { AppAction } from './actions'
 
 const fetchDataEpic: Epic<AppAction> = action$ =>
