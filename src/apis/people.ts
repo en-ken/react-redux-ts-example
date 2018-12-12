@@ -7,7 +7,7 @@ export interface PersonalData {
 }
 
 const people = {
-  get: () => axios.get<PersonalData[]>('http://localhost:8080/'),
-  post: (data: PersonalData) => axios.post('http://localhost:8080/', data)
+  get: () => axios.get<PersonalData[]>('http://localhost:3000/people'),
+  post: (data: PersonalData) => axios.post('http://localhost:3000/people', data)
 }
 export default people
