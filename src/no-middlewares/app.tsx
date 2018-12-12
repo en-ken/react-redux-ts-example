@@ -14,6 +14,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
 import PeopleApi, { PersonalData } from '../apis/people'
+import InputDialog, { InputDialogProps } from '../components/input-dialog'
 import { actions, AppState } from './modules'
 
 type StateProps = ReturnType<typeof mapStateToProps>
@@ -54,6 +55,7 @@ const App = () => (
         </TableBody>
       </Table>
     </Paper>
+    <InputDialog isOpen={true} handleOk={() => {}} handleCancel={() => {}} />
   </>
 )
 
