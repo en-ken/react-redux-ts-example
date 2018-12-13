@@ -29,7 +29,7 @@ const personalData = (
     case ActionType.FETCH_DATA_SUCCESS:
       return {
         ...state,
-        personalData: action.payload.data
+        data: action.payload.data
       }
     default:
       return state
@@ -40,11 +40,11 @@ export default personalData
 export interface AppState {
   isLoaded: boolean
   isOpenDialog: boolean
-  personalData: PersonalData[] | null
+  data: PersonalData[]
 }
 
 const initState: AppState = {
   isLoaded: false,
   isOpenDialog: false,
-  personalData: null
+  data: []
 }

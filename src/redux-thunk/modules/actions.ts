@@ -26,6 +26,7 @@ const actions = {
     createAction(ActionType.FETCH_DATA_SUCCESS, { data }),
   postData: (inputData: PersonalData) => async (dispatch: Dispatch) => {
     dispatch(actions.startLoading())
+    dispatch(actions.closeDialog())
     await PeopleApi.post(inputData)
     const { data } = await PeopleApi.get()
     dispatch(actions.fetchDataSuccess(data))

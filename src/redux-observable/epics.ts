@@ -1,7 +1,8 @@
 import { combineEpics, Epic } from 'redux-observable'
-import { mergeMap } from 'rxjs/operators'
+import { from, of } from 'rxjs'
+import { map, mergeMap, mergeMapTo } from 'rxjs/operators'
 
-import { ofAction } from 'typescript-fsa-redux-observable-of-action'
+import { ofAction } from './typescript-fsa-redux-observable-of-action'
 
 import PeopleApi from '../apis/people'
 import { actions, AppAction } from './modules'
@@ -9,21 +10,21 @@ import { actions, AppAction } from './modules'
 const fetchDataEpic: Epic<AppAction> = action$ =>
   action$.pipe(
     ofAction(actions.fetchData),
-    mergeMap(async () => {
-      const { data } = await PeopleApi.get()
-      return actions.fetchDataSuccess({ data })
-    })
+    mergeMap(() =>
+      from(PeopleApi.get()).pipe(
+        map(({ data }) => actions.fetchDataSuccess({ data }))
+      )
+    )
   )
 
 const postDataEpic: Epic<AppAction> = action$ =>
   action$.pipe(
     ofAction(actions.postData),
-    mergeMap(async action => {
-      await PeopleApi.post(action.payload)
-      const { data } = await PeopleApi.get()
-      return actions.fetchDataSuccess({ data })
-    })
+    mergeMap(action =>
+      from(PeopleApi.post(action.payload)).pipe(
+        mergeMapTo([actions.closeDialog(), actions.fetchData()])
+      )
+    )
   )
 
-const epics = combineEpics(fetchDataEpic, postDataEpic)
-export default epics
+export default combineEpics(fetchDataEpic, postDataEpic)

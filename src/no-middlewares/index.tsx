@@ -8,7 +8,11 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import App from './app'
 import reducers from './modules'
 
-const store = createStore(reducers)
+const store = createStore(
+  reducers,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+)
 const theme = createMuiTheme({
   palette: {
     type: 'dark'
