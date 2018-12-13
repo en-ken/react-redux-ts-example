@@ -1,10 +1,7 @@
 import { PersonalData } from '../../apis/people'
-import { ActionType, AppAction } from './actions'
+import { ActionType, PageAction } from './actions'
 
-const personalData = (
-  state: AppState = initState,
-  action: AppAction
-): AppState => {
+const page = (state: PageState = initState, action: PageAction): PageState => {
   switch (action.type) {
     case ActionType.START_LOADING:
       return {
@@ -16,16 +13,6 @@ const personalData = (
         ...state,
         isLoaded: true
       }
-    case ActionType.OPEN_DIALOG:
-      return {
-        ...state,
-        isOpenDialog: true
-      }
-    case ActionType.CLOSE_DIALOG:
-      return {
-        ...state,
-        isOpenDialog: false
-      }
     case ActionType.FETCH_DATA_SUCCESS:
       return {
         ...state,
@@ -35,16 +22,14 @@ const personalData = (
       return state
   }
 }
-export default personalData
+export default page
 
-export interface AppState {
+export interface PageState {
   isLoaded: boolean
-  isOpenDialog: boolean
   data: PersonalData[]
 }
 
-const initState: AppState = {
+const initState: PageState = {
   isLoaded: false,
-  isOpenDialog: false,
   data: []
 }

@@ -20,4 +20,4 @@ export type ActionsUnion<
   A extends {
     [actionCreator: string]: (...args: any[]) => any
   }
-> = ReturnType<A[keyof A]>
+> = Exclude<ReturnType<A[keyof A]>, (...args: any[]) => Promise<void>>
