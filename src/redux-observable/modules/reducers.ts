@@ -1,23 +1,19 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
 
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import actions from './actions'
 
-export interface AppState {
+export interface PageState {
   isLoaded: boolean
-  isOpenDialog: boolean
   data: PersonalData[]
 }
 
-const initState: AppState = {
+const initState: PageState = {
   isLoaded: false,
-  isOpenDialog: false,
   data: []
 }
 
-const personalData = reducerWithInitialState(initState)
-  .case(actions.openDialog, state => ({ ...state, isOpenDialog: true }))
-  .case(actions.closeDialog, state => ({ ...state, isOpenDialog: false }))
+const page = reducerWithInitialState(initState)
   .case(actions.fetchData, state => ({ ...state, isLoaded: false }))
   .case(actions.fetchDataSuccess, (state, payload) => ({
     ...state,
@@ -25,4 +21,4 @@ const personalData = reducerWithInitialState(initState)
     data: payload.data
   }))
   .case(actions.postData, state => ({ ...state, isLoaded: false }))
-export default personalData
+export default page

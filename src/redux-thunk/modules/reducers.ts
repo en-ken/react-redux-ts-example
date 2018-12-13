@@ -1,4 +1,4 @@
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import { ActionType, AppAction } from './actions'
 
 const personalData = (
@@ -16,16 +16,6 @@ const personalData = (
         ...state,
         isLoaded: true
       }
-    case ActionType.OPEN_DIALOG:
-      return {
-        ...state,
-        isOpenDialog: true
-      }
-    case ActionType.CLOSE_DIALOG:
-      return {
-        ...state,
-        isOpenDialog: false
-      }
     case ActionType.FETCH_DATA_SUCCESS:
       return {
         ...state,
@@ -39,12 +29,10 @@ export default personalData
 
 export interface AppState {
   isLoaded: boolean
-  isOpenDialog: boolean
   data: PersonalData[]
 }
 
 const initState: AppState = {
   isLoaded: false,
-  isOpenDialog: false,
   data: []
 }

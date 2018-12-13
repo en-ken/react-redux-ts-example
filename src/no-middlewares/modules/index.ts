@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
 
-import { ActionsUnion } from '../../modules/action-utils'
+import { ActionsUnion } from '../../common/modules/action-utils'
 import inputDialog, {
   actions as inputDialogActions
-} from '../../modules/input-dialog'
+} from '../../common/modules/input-dialog'
 import pageActions from './actions'
 import people from './reducers'
 

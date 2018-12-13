@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux'
 import { ActionsUnion, createAction } from './action-utils'
 
 import { PersonalData } from '../apis/people'
@@ -66,6 +65,8 @@ const reducer = (
         ...state,
         isOpen: false
       }
+    default:
+      return state
   }
 }
 export default reducer

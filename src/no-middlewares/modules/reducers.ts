@@ -1,4 +1,4 @@
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import { ActionType, PageAction } from './actions'
 
 const page = (state: PageState = initState, action: PageAction): PageState => {

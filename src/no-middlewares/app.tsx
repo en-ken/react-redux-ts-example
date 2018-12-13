@@ -14,8 +14,8 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
-import PeopleApi, { PersonalData } from '../apis/people'
-import InputDialog from '../containers/input-dialog'
+import PeopleApi, { PersonalData } from '../common/apis/people'
+import InputDialog from '../common/containers/input-dialog'
 import { actions, AppState } from './modules'
 
 type StateProps = ReturnType<typeof mapStateToProps>

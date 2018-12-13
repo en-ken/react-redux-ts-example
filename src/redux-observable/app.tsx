@@ -14,8 +14,8 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 
-import PeopleApi, { PersonalData } from '../apis/people'
-import InputDialog from '../components/input-dialog'
+import { PersonalData } from '../common/apis/people'
+import InputDialog from '../common/containers/input-dialog'
 import { actions, AppState } from './modules'
 
 type StateProps = ReturnType<typeof mapStateToProps>
@@ -68,16 +68,19 @@ class App extends React.PureComponent<Props> {
           )}
         </Paper>
         <InputDialog
-          isOpen={this.props.isOpenDialog}
-          handleOk={this.props.postData}
+          handleOk={this.onOk}
           handleCancel={this.props.closeDialog}
         />
       </>
     )
   }
+  private onOk = () => this.props.postData(this.props.inputData)
 }
 
-const mapStateToProps = (state: AppState) => ({ ...state })
+const mapStateToProps = (state: AppState) => ({
+  ...state.people,
+  inputData: state.inputDialog.inputData
+})
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   initialize: async () => dispatch(actions.fetchData()),
   postData: async (inputData: PersonalData) =>

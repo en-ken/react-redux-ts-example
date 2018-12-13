@@ -35,11 +35,7 @@ const InputDialog = ({
     inputWeight(Number(e.currentTarget.value))
 
   return (
-    <Dialog
-      open={isOpen}
-      onClose={handleCancel}
-      aria-labelledby="form-dialog-title"
-    >
+    <Dialog open={isOpen} onClose={handleCancel}>
       <DialogTitle>Input Personal Data</DialogTitle>
       <DialogContent>
         <TextField
