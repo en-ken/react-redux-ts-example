@@ -1,5 +1,5 @@
 import { combineEpics, Epic } from 'redux-observable'
-import { from, of } from 'rxjs'
+import { from } from 'rxjs'
 import { map, mergeMap, mergeMapTo } from 'rxjs/operators'
 
 import { ofAction } from './typescript-fsa-redux-observable-of-action'
