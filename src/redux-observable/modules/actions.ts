@@ -1,7 +1,7 @@
 import actionCreatorFactory from 'typescript-fsa'
 
 import { PersonalData } from '../../apis/people'
-import { ActionsUnion } from '../../utils/actions'
+import { ActionsUnion } from './action-utils'
 
 export enum ActionType {
   FETCH_DATA = 'example/redux-observable/FETCH_DATA',

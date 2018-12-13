@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import PeopleApi, { PersonalData } from '../../apis/people'
-import { ActionsUnion, createAction } from '../../utils/actions'
+import { ActionsUnion, createAction } from './actions-utils'
 
 export enum ActionType {
   FETCH_DATA = 'example/redux-thunk/FETCH_DATA',

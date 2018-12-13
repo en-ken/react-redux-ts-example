@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux'
 import PeopleApi, { PersonalData } from '../../apis/people'
-import { ActionsUnion, createAction } from '../../utils/actions'
+import { ActionsUnion, createAction } from './action-utils'
 
 export enum ActionType {
   FETCH_DATA_SUCCESS = 'example/no-middleware/FETCH_DATA_SUCCESS',
