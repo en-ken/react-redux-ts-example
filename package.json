@@ -19,8 +19,7 @@
     "redux-thunk": "^2.3.0",
     "rxjs": "^6.3.3",
     "typescript-fsa": "^3.0.0-beta-2",
-    "typescript-fsa-reducers": "^1.1.0",
-    "typescript-fsa-redux-observable-of-action": "0.0.1"
+    "typescript-fsa-reducers": "^1.1.0"
   },
   "devDependencies": {
     "@types/react-router-dom": "^4.3.1",
@@ -35,6 +34,7 @@
     "tslint-loader": "^3.5.4",
     "tslint-plugin-prettier": "^2.0.1",
     "typescript": "^3.2.2",
+    "typescript-fsa-redux-observable-of-action": "0.0.2",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
