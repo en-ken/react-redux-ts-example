@@ -1,6 +1,6 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
 
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import actions from './actions'
 
 export interface AppState {

@@ -1,4 +1,4 @@
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import { ActionType, AppAction } from './actions'
 
 const personalData = (

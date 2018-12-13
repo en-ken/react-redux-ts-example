@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux'
-import PeopleApi, { PersonalData } from '../../apis/people'
+import PeopleApi, { PersonalData } from '../../common/apis/people'
 import { ActionsUnion, createAction } from './actions-utils'
 
 export enum ActionType {

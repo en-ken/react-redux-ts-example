@@ -1,10 +1,7 @@
-import { PersonalData } from '../../apis/people'
+import { PersonalData } from '../../common/apis/people'
 import { ActionType, AppAction } from './actions'
 
-const personalData = (
-  state: AppState = initState,
-  action: AppAction
-): AppState => {
+const reducer = (state: AppState = initState, action: AppAction): AppState => {
   switch (action.type) {
     case ActionType.START_LOADING:
       return {
@@ -35,7 +32,7 @@ const personalData = (
       return state
   }
 }
-export default personalData
+export default reducer
 
 export interface AppState {
   isLoaded: boolean
