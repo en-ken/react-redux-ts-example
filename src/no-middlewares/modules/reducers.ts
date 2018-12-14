@@ -1,4 +1,4 @@
-import { PersonalData } from '../../common/apis/people'
+import { PersonalData } from 'common/apis/people'
 import { ActionType, AppAction } from './actions'
 
 const reducer = (state: AppState = initState, action: AppAction): AppState => {

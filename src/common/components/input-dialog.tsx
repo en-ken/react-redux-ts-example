@@ -6,7 +6,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
 import React from 'react'
 
-import { PersonalData } from '../apis/people'
+import { PersonalData } from 'common/apis/people'
 
 export interface InputDialogProps {
   handleOk: (input: PersonalData) => void

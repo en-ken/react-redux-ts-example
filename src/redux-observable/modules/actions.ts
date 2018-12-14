@@ -1,6 +1,6 @@
 import actionCreatorFactory from 'typescript-fsa'
 
-import { PersonalData } from '../../common/apis/people'
+import { PersonalData } from 'common/apis/people'
 import { ActionsUnion } from './action-utils'
 
 export enum ActionType {

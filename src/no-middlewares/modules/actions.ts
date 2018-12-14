@@ -1,4 +1,4 @@
-import { PersonalData } from '../../common/apis/people'
+import { PersonalData } from 'common/apis/people'
 import { ActionsUnion, createAction } from './action-utils'
 
 export enum ActionType {
